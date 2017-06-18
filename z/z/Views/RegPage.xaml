@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="z.Views.RegPage"
+             Title ="Reg"
+             Padding="50,110,50,30">
+    <StackLayout>
+        <Label Text="Придумайте логин:"/>
+        <Entry Text="{Binding UserName}"/>
+        <Label Text="Введите пароль:"/>
+        <Entry Text="{Binding Password}" IsPassword="True"/>
+
+        <Label  Text="Знак зодиака:"  />
+        <Picker ItemsSource="{Binding AllSign}"
+                SelectedIndex="{Binding SignSelectedIndex}"/>
+        
+            
+        <Button Text="Зарегистрироваться"
+            Command="{Binding RegCommand}"/>
+       
+    </StackLayout>
+</ContentPage>

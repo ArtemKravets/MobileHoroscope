@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="z.Views.HoroPage"
+             Title="Ваш знак зодиака"
+             Padding="10, 10, 10, 10">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Ваш гороскоп"  Command="{Binding ZnaksCommand}"  Order="Secondary"/>
+        <ToolbarItem Text="Выход"  Command="{Binding ExitCommand}" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ListView ItemsSource="{Binding Horo}"
+            HasUnevenRows="True"
+            x:Name="listview" ItemSelected="OnItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout Orientation="Horizontal" Padding="10,10,10,10">
+                            <Image Source="{Binding Image}"
+                     HeightRequest="100"
+                     WidthRequest="100"
+                               />
+                            <StackLayout>
+                                <Label Text="{Binding Name}"/>
+                                <Label Text="{Binding Date}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

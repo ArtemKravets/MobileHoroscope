@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="z.Views.ProfilPage"
+             Title="Ваш профиль"
+             Padding="10,20,20,10">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Знаки зодиака"  Command="{Binding ZnaksCommand}"  Order="Secondary"/>
+        <ToolbarItem Text="Выход"  Command="{Binding ExitCommand}" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ListView ItemsSource="{Binding Profil}"
+            HasUnevenRows="True"
+            ItemTapped="ListView_OnItemTapped"
+            x:Name="listview">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center" >
+                            <Image Source="{Binding Image}"
+                     HeightRequest="100"
+                     WidthRequest="100"
+                               />
+                            <StackLayout Orientation="Vertical" VerticalOptions="Center" HorizontalOptions="Center">
+
+                                <Label Text="{Binding Login}" FontSize="Large" HorizontalOptions="Center" FontAttributes="Bold"/>
+                                
+                                <StackLayout Orientation="Horizontal" >
+                                    <Label Text="Дата рождения:" FontSize="Medium"/>
+                                    <Label Text="{Binding Price}" FontAttributes="Bold" FontSize="Medium"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Ваш знак зодиака:" FontSize="Medium"/>
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium"/>
+                                </StackLayout>
+                                <Button Text="Изменить"
+            Command="{Binding ZnaksCommand}"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

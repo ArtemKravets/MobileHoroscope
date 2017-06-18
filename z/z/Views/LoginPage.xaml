@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="z.Views.LoginPage"
+             Title ="Вход"
+             Padding="50,110,50,30">
+    <StackLayout>
+        <Label Text="Введите логин"/>
+        <Entry Text="{Binding UserName}"/>
+        <Label Text="Пароль"/>
+        <Entry Text="{Binding Password}" IsPassword="True"/>
+        <Button Text="Войти"
+            Command="{Binding LoginCommand}" BackgroundColor="#332f6d" TextColor="White"/>
+        <Button Text="Регистрация"
+            Command="{Binding RegCommand}" BackgroundColor="#332f6d" TextColor="White"/>
+    </StackLayout>
+</ContentPage>

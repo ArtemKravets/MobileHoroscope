@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="z.Views.HoroPage"
+             Title="РАК (21.06-22.07) "
+             Padding="10, 10, 10, 10">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Профиль"   Command="{Binding ProfilCommand}" Order="Secondary"/>
+        <ToolbarItem Text="Знаки зодиака"  Command="{Binding ZnaksCommand}"  Order="Secondary"/>
+        <ToolbarItem Text="Выход"  Command="{Binding ExitCommand}" Order="Secondary"/>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <ListView ItemsSource="{Binding Horo}"
+             SeparatorVisibility="None"
+              HasUnevenRows="True"
+              HorizontalOptions="FillAndExpand" 
+VerticalOptions="FillAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout  Orientation="Vertical">
+                                <Image Source="{Binding Image}"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                               />
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center"  Margin="10,30,10,0">
+                                    <Button Text="Сегодня" Command="{Binding LoginCommand}"  />
+                                    <Button Text="Завтра" Command="{Binding LoginCommand}" />
+                                    <Button Text="Неделя" Command="{Binding LoginCommand}" />
+                                </StackLayout>
+                                <Label Text="{Binding Text} " FontSize="Large"  VerticalOptions="Center"
+                                         Margin="10,30,10,0"/>
+
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ScrollView>
+</ContentPage>
