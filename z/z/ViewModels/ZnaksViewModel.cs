@@ -17,6 +17,20 @@ namespace z.ViewModels
     public class ZnaksViewModel : ContentPage
     {
 
+        public ObservableCollection<ZnakModel> CurrentSign { get; set; } = new ObservableCollection<ZnakModel>();
+
+        public async Task GetSign()
+        {
+            var dataServices = DataService.DataService.GetInstance();
+            var status = await dataServices.GetJsonString();
+
+            foreach (var answer in status)
+            {
+                CurrentSign.Add(answer);
+            }
+
+        }
+
         public Command ExitCommand { get; set; }
         public Command ZnaksCommand { get; set; }
 
@@ -40,24 +54,6 @@ namespace z.ViewModels
         {
             await _page.Navigation.PushAsync(new ZnaksPage());
         }
-
-        public ObservableCollection<ZnaksModel> CurrentSign { get; set; } = new ObservableCollection<ZnaksModel>();
-
-        public async Task GetSign()
-        {
-            var DataServices = DataService.DataService.GetInstance();
-            var status = await DataServices.GetJsonString();
-            if(status != null)
-            {
-                foreach (var answer in status)
-                {
-                    CurrentSign.Add(answer);
-                }
-            }      
-
-        }
-
-
 
     }
 }

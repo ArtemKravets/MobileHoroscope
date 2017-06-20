@@ -11,6 +11,8 @@ namespace z.Models
     public class ZnakModel
     {
         public string comment { get; set; }
+        public string image { get; set; }
+        public string name { get; set; }
 
     }
 }

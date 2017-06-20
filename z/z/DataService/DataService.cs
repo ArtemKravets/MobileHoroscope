@@ -2,6 +2,8 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -57,14 +59,20 @@ namespace z.DataService
             return await PostAsync("/reg.php", json.ToString());
         }
 
-        public async Task<List<ZnaksModel>> GetJsonString()
+        public async Task<ObservableCollection<ZnakModel>> GetJsonString()
         {
-            var json = new JObject { };
-            var response = await PostAsync("/test.json", json.ToString());
-            var result = JsonConvert.DeserializeObject<List<ZnaksModel>>(response);
-            return result;
-
-
+            try
+            {
+                var response = await _client.PostAsync($"{_baseUrl}/test.json", new StringContent("", Encoding.UTF8, "application/json"));
+                var responseBody = await response.Content.ReadAsStringAsync();
+                var responseJson = JsonConvert.DeserializeObject<ObservableCollection<ZnakModel>>(responseBody);
+                return responseJson;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return new ObservableCollection<ZnakModel>();
+            }
         }
 
     }

@@ -11,8 +11,7 @@
 namespace z.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Artem\\Desktop\\new\\поседняя рабочая (1) (1)\\поседняя рабочая (1)\\z\\z\\z\\Vi" +
-        "ews\\RegPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Artem\\Desktop\\new\\currentVersionHoro\\z\\z\\z\\Views\\RegPage.xaml")]
     public partial class RegPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

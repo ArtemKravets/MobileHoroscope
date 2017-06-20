@@ -18,17 +18,15 @@ namespace z.Views
         public ZnaksPage()
         {
             InitializeComponent();
-            _viewmodel = new ZnaksViewModel(this);
-             _viewmodel.GetSign();
+            _viewmodel = new ZnaksViewModel(this);       
             BindingContext = _viewmodel;
         }
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-
-            if (Loaded == false)
+            if(Loaded == false)
             {
+                base.OnAppearing();
                 await _viewmodel.GetSign();
                 Loaded = true;
             }

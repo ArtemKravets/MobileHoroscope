@@ -11,8 +11,7 @@
 namespace z {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Artem\\Desktop\\new\\поседняя рабочая (1) (1)\\поседняя рабочая (1)\\z\\z\\z\\Ap" +
-        "p.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\Users\\Artem\\Desktop\\new\\currentVersionHoro\\z\\z\\z\\App.xaml")]
     public partial class App : global::Xamarin.Forms.Application {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
